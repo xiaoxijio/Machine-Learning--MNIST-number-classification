@@ -9,7 +9,10 @@ from torch.utils.data import TensorDataset, DataLoader
 
 
 class CNN(nn.Module):
-    """这次跟上次不一样了，这次是直接将图片放模型里(1,28,28)，上次是把图像数据平铺放里面的(28 * 28 = 784)"""
+    """
+    这次跟上次不一样了，这次是直接将图片放模型里(1,28,28)，上次是把图像数据平铺放里面的(28 * 28 = 784)
+    图像大小 (1,28,28) 注: pytorch中, 图像张量的格式通常是 (C, H, W),  OpenCV中，通常使用 (H, W, C) 格式
+    """
 
     def __init__(self):
         super(CNN, self).__init__()
@@ -74,8 +77,6 @@ def test(test_batch, model, device):
     print(f"测试准确率: {accuracy * 100:.2f}%")
 
 
-input_size = 28  # 图像大小 (1,28,28) 注: pytorch中, 图像张量的格式通常是 (C, H, W),  OpenCV中，通常使用 (H, W, C) 格式
-num_classes = 10  # 标签 0-9
 batch_size = 64
 train_steps = 100
 # 内置的 MNIST数据集 如果./data路径上有这个数据集，将不会再下载 (**之前不知道 还去网上找  真**了 文明用语)
