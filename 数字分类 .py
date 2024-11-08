@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from torch import optim
 from unit import parse_mnist
 from torch.utils.data import TensorDataset, DataLoader
+from matplotlib import pyplot as plt
 
 
 class Mnist_NN(nn.Module):
